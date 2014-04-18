@@ -18,22 +18,19 @@ class ShopProduct {
         $this->title                = $title;
         $this->producerFirstName    = $firstName;
         $this->producerMainName     = $mainName;
-        $this->price                = $price; //$this псевдопеременная для присвоения значений соответствующим свойствам объекта
+        $this->price                = $price;
         $this->numPages             = $numPages;
         $this->playLength           = $playLength;
     }
-
-    function getNumberOfPages() {
-        return $this->numPages;
-    }
-
-    function getPlayLength() {
-        return $this->playLength;
-    }
-
+    
     function getProducer() {
         return "{$this->producerFirstName}"
              ." {$this->producerMainName}";
     }
 
+    function getSummaryLine() {
+        $base  = "{$this->title} ( {$this->producerMainName}, ";
+        $base .= "{$this->producerFirstName} )";
+        return $base;
+    }
 } 
