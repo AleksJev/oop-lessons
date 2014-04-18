@@ -7,7 +7,11 @@
  */
 
 class ShopProductWriter {
-    public function write(ShopProduct $shopProduct ) { //методу передается объект типа ShopProduct
+    public function write($shopProduct ) {
+        if ( ! ($shopProduct instanceof CDProduct) &&
+             ! ($shopProduct instanceof BookProduct)) {
+            die("Передан неверный тип данных");
+        }
         $str = "{$shopProduct->title}: "
             .$shopProduct->getProducer()
             ." ({$shopProduct->price})<br>";
