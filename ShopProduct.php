@@ -22,7 +22,7 @@ class ShopProduct {
         $this->numPages             = $numPages;
         $this->playLength           = $playLength;
     }
-    
+
     function getProducer() {
         return "{$this->producerFirstName}"
              ." {$this->producerMainName}";
