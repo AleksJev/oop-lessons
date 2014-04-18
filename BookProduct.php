@@ -7,6 +7,12 @@
  */
 
 class BookProduct extends ShopProduct {
+    public $numPages;
+
+    function __construct($title, $firstName, $mainName, $price, $numPages) {
+        parent::__construct($title, $firstName, $mainName, $price);
+        $this->numPages = $numPages;
+    }
 
     function getNumberOfPages() {
         return $this->numPages;
