@@ -7,14 +7,19 @@
  */
 
 class ShopProductWriter {
-    public function write($shopProduct ) {
-        if ( ! ($shopProduct instanceof CDProduct) &&
-             ! ($shopProduct instanceof BookProduct)) {
-            die("Передан неверный тип данных");
+    private $products = array();
+
+    public function addProduct( ShopProduct $shopProduct) {
+        $this->products[] = $shopProduct;
+    }
+
+    public function write() {
+        $str = "";
+        foreach ($this->products as $shopProduct) {
+            $str .= "{$shopProduct->title}: ";
+            $str .= $shopProduct->getProducer();
+            $str .=  " ({$shopProduct->getPrice()}) <br>";
         }
-        $str = "{$shopProduct->title}: "
-            .$shopProduct->getProducer()
-            ." ({$shopProduct->price})<br>";
         print $str;
     }
 
