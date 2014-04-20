@@ -8,6 +8,7 @@
 
 class CDProduct extends ShopProduct {
     public $playLength;
+    public $discount = 0;
 
     function __construct($title, $firstName, $mainName, $price, $playLength) {
         parent::__construct($title, $firstName, $mainName, $price);
@@ -22,6 +23,10 @@ class CDProduct extends ShopProduct {
         $base  = parent::getSummaryLIne();
         $base .= ": Время звучания - {$this->playLength}";
         return $base;
+    }
+
+    function setDiscount($num) {
+        $this->discount=$num;
     }
 
 } 
