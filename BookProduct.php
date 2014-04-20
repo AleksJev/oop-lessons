@@ -19,8 +19,7 @@ class BookProduct extends ShopProduct {
     }
 
     function getSummaryLine() {
-        $base  = "{$this->title} ( {$this->producerMainName}, ";
-        $base .= "{$this->producerFirstName} )";
+        $base  = parent::getSummaryLine();
         $base .= "{$this->numPages} стр.";
         return $base;
     }
