@@ -7,16 +7,37 @@
  */
 
 class ShopProduct {
-    public $title;
-    public $producerMainName;
-    public $producerFirstName;
-    public $price;
+    private $title;
+    private $producerMainName;
+    private $producerFirstName;
+    protected $price;
+    private $discount = 0;
 
-    function __construct( $title, $firstName, $mainName, $price) {
+    public function __construct( $title, $firstName, $mainName, $price) {
         $this->title                = $title;
         $this->producerFirstName    = $firstName;
         $this->producerMainName     = $mainName;
         $this->price                = $price;
+    }
+
+    public function getProducerFirstName() {
+        return $this->producerFirstName;
+    }
+
+    public function setDiscount($num) {
+        return $this->discount = $num;
+    }
+
+    public function getDiscount() {
+        return $this->discount;
+    }
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+    public function getPrice() {
+        return ($this->price - $this->discount);
     }
 
     function getProducer() {
