@@ -29,4 +29,8 @@ class CDProduct extends ShopProduct {
         $this->discount=$num;
     }
 
+    function getPrice() {
+        return ($this->price - $this->discount);
+    }
+
 } 
