@@ -7,30 +7,25 @@
  */
 
 class CDProduct extends ShopProduct {
-    public $playLength;
-    public $discount = 0;
+    public $playLength = 0;
 
-    function __construct($title, $firstName, $mainName, $price, $playLength) {
+    public function __construct($title, $firstName, $mainName, $price, $playLength) {
         parent::__construct($title, $firstName, $mainName, $price);
         $this->playLength = $playLength;
     }
 
-    function getPlayLength() {
+    public function getPlayLength() {
         return $this->playLength;
     }
 
-    function getSummaryLine() {
+    public function getSummaryLine() {
         $base  = parent::getSummaryLIne();
         $base .= ": Время звучания - {$this->playLength}";
         return $base;
     }
 
-    function setDiscount($num) {
-        $this->discount=$num;
-    }
-
-    function getPrice() {
-        return ($this->price - $this->discount);
+    public function getPrice() {
+        return ($this->price);
     }
 
 } 
