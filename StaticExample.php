@@ -10,10 +10,11 @@ class StaticExample {
     static $aNum = 0;
 
     static public function sayHallo() {
-        print "Hello!";
+        self::$aNum++;
+        print "Привет! (". self::$aNum .")<br>";
     }
 
 }
 
 print StaticExample::$aNum;
-StaticExample::sayHello();
+//StaticExample::sayHello();
