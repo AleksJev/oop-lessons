@@ -6,7 +6,7 @@
  * Time: 06:21
  */
 
-class ShopProduct {
+class ShopProduct implements Chargeable{
     private $title;
     private $producerMainName;
     private $producerFirstName;
