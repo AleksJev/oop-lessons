@@ -18,3 +18,11 @@ $writer     = new ShopProductWriter();
 
 $product2 = new ShopProduct("Пропавший без вести", "Группа", "ДДТ", 10.99, null, 60.33);
 print "Исполнитель: {$product2->getProducer()}<br>";
+/*
+$dsn = "products.db";
+$pdo = new PDO($dsn, null, null);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$obj = ShopProduct::getInstance(1, $pdo);
+*/
+print ShopProduct::OUT_OF_STOCK;
+
