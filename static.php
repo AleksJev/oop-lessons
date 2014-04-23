@@ -5,16 +5,18 @@
  * Date: 14.23.4
  * Time: 22:44
  */
-abstract class DomainObject {}
+abstract class DomainObject {
+    public static function create() {
+        return new static();
+    }
+}
 
 class User extends DomainObject {
-    public static function create() {
-        return new User();
-    }
+
 }
 
 class Document extends DomainObject {
-    public static function create() {
-        return new Document();
-    }
+
 }
+
+print_r(Document::create());
