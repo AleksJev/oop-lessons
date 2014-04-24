@@ -13,10 +13,16 @@ class Conf {
 
     function __construct($file) {
         $this->file = $file;
+        if(! file_exists($file)) {
+            throw new Exception("Файл '$file'не найден");
+        }
         $this->xml = simplexml_load_file($file);
     }
 
     function write() {
+        if(! is_writeable($this->file)) {
+            throw new Exception("Файл '{$this->file}'не доступен для записи");
+        }
         file_put_contents($this->file, $this->xml->asXML());
     }
 
@@ -38,4 +44,11 @@ class Conf {
         $this->xml->addChild('item', $value)->addAttribute('name', $key);
     }
 
-} 
+}
+
+$test = new Conf('conf.xml');
+//var_dump($test);
+
+print "{$test->get('host')}<br>";
+$test->set('test','super');
+print "{$test->get('test')}<br>";
